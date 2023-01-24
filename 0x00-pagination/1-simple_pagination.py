@@ -2,6 +2,9 @@
 import csv
 import math
 from typing import List
+"""
+Contains class with methods to create simple pagination from csv data
+"""
 
 
 def index_range(page, page_size):
