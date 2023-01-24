@@ -1,11 +1,14 @@
+#!/usr/bin/env python3
 import csv
 import math
 from typing import List
 
+
 def index_range(page, page_size):
-    start_index =  (page-1)*page_size
+    start_index = (page-1)*page_size
     end_index = start_index + page_size
     return (start_index, end_index)
+
 
 class Server:
     """Server class to paginate a database of popular baby names.
@@ -27,10 +30,10 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            assert type(page) is int and page > 0
-            assert type(page_size) is int and page_size > 0
-            try:
-                ranges = index_range(page,page_size)
-                return self.dataset()[ranges[0]:ranges[1]]
-            except IndexError:
-                 return []
+        assert type(page) is int and page > 0
+        assert type(page_size) is int and page_size > 0
+        try:
+            ranges = index_range(page, page_size)
+            return self.dataset()[ranges[0]:ranges[1]]
+        except IndexError:
+            return []
