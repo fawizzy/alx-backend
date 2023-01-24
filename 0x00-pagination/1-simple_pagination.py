@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-import csv
-import math
-from typing import List
 """
 Contains class with methods to create simple pagination from csv data
 """
+import csv
+import math
+from typing import List
+
 
 
 def index_range(page, page_size):
