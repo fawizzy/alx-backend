@@ -7,7 +7,6 @@ import math
 from typing import List
 
 
-
 def index_range(page, page_size):
     """
     returns a tuple of size two containing a start index
