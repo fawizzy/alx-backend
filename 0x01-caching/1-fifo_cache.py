@@ -35,6 +35,6 @@ class FIFOCache(BaseCaching):
             return None
 
         try:
-            self.cache_data[key]
+            return self.cache_data[key]
         except KeyError:
             None
