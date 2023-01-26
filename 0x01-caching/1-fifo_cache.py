@@ -31,6 +31,9 @@ class FIFOCache(BaseCaching):
         """
             Return the value of the key from the dictionary
         """
+        if key is None:
+            return None
+
         try:
             self.cache_data[key]
         except KeyError:
