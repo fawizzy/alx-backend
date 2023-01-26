@@ -14,7 +14,7 @@ class FIFOCache(BaseCaching):
         Initialize the class with the parent's init method
         """
         super().__init__()
-    
+
     def put(self, key, item):
         """
             Cache a key value pair
@@ -33,5 +33,5 @@ class FIFOCache(BaseCaching):
         """
         try:
             self.cache_data[key]
-        except:
+        except KeyError:
             None

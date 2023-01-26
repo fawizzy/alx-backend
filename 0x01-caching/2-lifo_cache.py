@@ -15,18 +15,17 @@ class LIFOCache(BaseCaching):
         """
         super().__init__()
         self.order = []
-    
+
     def put(self, key, item):
         """
         Cache a key-value pair
         """
         if key is None or item is None:
             return
-        
-                
+
         self.cache_data[key] = item
         self.order.append(key)
-        
+
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             del_key = self.order[-2]
             del self.cache_data[del_key]
@@ -40,5 +39,5 @@ class LIFOCache(BaseCaching):
         """
         try:
             self.cache_data[key]
-        except:
+        except KeyError:
             None
