@@ -35,7 +35,7 @@ class BasicCache(BaseCaching):
         get the value of the key from the dictionary
         """
         if key is None:
-            return
+            return None
 
         try:
             return self.cache_data[key]
