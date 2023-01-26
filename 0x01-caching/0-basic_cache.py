@@ -2,18 +2,20 @@
 """
 BaseCache module
 """
-
 from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
     """
-        A Basic cache system
+    Defines a class for caching information in key-value pairs
+    Methods:
+        put(key, item) - store a key-value pair
+        get(key) - retrieve the value associated with a key
     """
 
     def __init__(self):
         """
-        INnitialise the system
+        Initialize the class using the parent class __init__ method
         """
         super().__init__()
 
