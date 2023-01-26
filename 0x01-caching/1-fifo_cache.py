@@ -21,7 +21,7 @@ class FIFOCache(BaseCaching):
         """
         if key is None or item is None:
             return
-        
+
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             del_key = list(self.cache_data.keys())[0]
             del self.cache_data[del_key]
