@@ -12,6 +12,9 @@ class BasicCache(BaseCaching):
     """
 
     def __init__(self):
+        """
+        INnitialise the system
+        """
         super().__init__()
 
     def put(self, key, item):
