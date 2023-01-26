@@ -38,6 +38,6 @@ class LIFOCache(BaseCaching):
         Return the value linked to a given key, or None
         """
         try:
-            self.cache_data[key]
+            return self.cache_data[key]
         except KeyError:
             None
