@@ -11,6 +11,9 @@ app = Flask(__name__)
 
 
 class Config(object):
+    '''
+    class to config babel
+    '''
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
@@ -30,6 +33,9 @@ def index():
 
 @babel.localeselector
 def get_locale():
+    '''
+    Select and return best language match based on supported languages
+    '''
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
