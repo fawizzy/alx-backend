@@ -27,7 +27,7 @@ def index():
     '''
     Function to render the 0-index html file
     '''
-    return render_template("3-index.html")
+    return render_template("4-index.html")
 
 
 @babel.localeselector
@@ -41,8 +41,7 @@ def get_locale():
         # check if the argument's value is a supported locale
         if locale in Config.LANGUAGES:
             return locale
-    # if no argument is present, or if the argument is not supported, resort to the default behavior
-    return request.accept_languages.best_match(app.config["LANGUAGES"])
+    return Config.BABEL_DEFAULT_LOCALE
 
 
 if __name__ == "__main__":
