@@ -1,9 +1,10 @@
 #!/urs/bin/env python3
-from flask import Flask, request, render_template, g
-from flask_babel import Babel
 '''
 Flask app
 '''
+from flask import Flask, request, render_template, g
+from flask_babel import Babel
+
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
