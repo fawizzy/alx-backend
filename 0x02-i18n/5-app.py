@@ -23,6 +23,20 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
+@babel.localeselector
+def get_locale():
+    '''
+    Select and return best language match based on supported languages
+    '''
+    locale = request.args.get('locale')
+    # check if the locale argument is present
+    if locale is not None:
+        # check if the argument's value is a supported locale
+        if locale in Config.LANGUAGES:
+            return locale
+    return Config.BABEL_DEFAULT_LOCALE
+
+
 def get_user():
     id = request.args.get('login_as', None)
     if id is not None and int(id) in users.keys():
