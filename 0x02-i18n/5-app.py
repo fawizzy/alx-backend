@@ -1,6 +1,10 @@
 #!/urs/bin/env python3
 from flask import Flask, request, render_template, g
 from flask_babel import Babel
+'''
+Flask app
+'''
+
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
@@ -38,6 +42,9 @@ def get_locale():
 
 
 def get_user():
+    '''
+    Get user from url
+    '''
     id = request.args.get('login_as', None)
     if id is not None and int(id) in users.keys():
         return users[int(id)]
@@ -46,6 +53,9 @@ def get_user():
 
 @app.before_request
 def before_request():
+    '''
+    get user from url and set as global user
+    '''
     user = get_user()
     g.user = user
 
