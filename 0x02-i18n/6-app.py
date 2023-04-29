@@ -36,13 +36,13 @@ def get_locale():
     locale = request.args.get('locale')
     # check if the locale argument is present
     if locale is not None:
-        # check if the argument's value is a supported locale
         if locale in Config.LANGUAGES:
             return locale
+    if g.user:
+        locale = g.user['locale']
+        if locale in Config.LANGUAGES:
+            return g.user["locale"]
 
-    locale = g.user['locale']
-    if locale in Config.LANGUAGES:
-        return g.user["locale"]
     locale = request.headers.get('locale', None)
     if locale in Config.LANGUAGES:
         return locale
