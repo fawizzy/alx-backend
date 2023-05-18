@@ -4,6 +4,7 @@ Least recently use caching
 """
 from base_caching import BaseCaching
 
+
 class LRUCache(BaseCaching):
     """
     Least recently used caching system
@@ -14,7 +15,6 @@ class LRUCache(BaseCaching):
         """
         super().__init__()
         self.lru = []
-    
 
     def put(self, key, item):
         """

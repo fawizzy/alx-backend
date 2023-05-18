@@ -4,6 +4,7 @@ MRUCache module
 """
 from base_caching import BaseCaching
 
+
 class MRUCache(BaseCaching):
     """
     A cache system for Most Recently Used (MRU) algorithm
