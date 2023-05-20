@@ -32,7 +32,7 @@ class MRUCache(BaseCaching):
             most_recently_used = self.mru[-2]
             del self.cache_data[most_recently_used]
             del self.mru[-2]
-            print("DISCARD: ", most_recently_used)
+            print("DISCARD:", most_recently_used)
 
     def get(self, key):
         """
