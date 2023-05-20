@@ -23,7 +23,7 @@ class LRUCache(BaseCaching):
         if key is None or item is None:
             return
 
-        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+        if len(self.cache_data) >= self.MAX_ITEMS:
             least_recently_used = list(self.cache_data.keys())[0]
             del self.cache_data[least_recently_used]
             print("DISCARD: ", least_recently_used)
