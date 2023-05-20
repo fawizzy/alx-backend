@@ -1,15 +1,10 @@
-#!/usr/bin/env python3
-"""
-BaseCache module
-"""
 from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
     """
     LIFOCache is a caching system that inherits from the BaseCaching class.
-    It implements a caching system using the
-    Last-In-First-Out (LIFO) algorithm.
+    It implements a caching system using the Last-In-First-Out (LIFO) algorithm.
     """
 
     def __init__(self):
@@ -29,8 +24,7 @@ class LIFOCache(BaseCaching):
         Inserts an item into the cache with the specified key.
 
         If the key or item is None, this method does nothing.
-        If the number of items in the
-        cache exceeds the maximum limit (BaseCaching.MAX_ITEMS),
+        If the number of items in the cache exceeds the maximum limit (BaseCaching.MAX_ITEMS),
         it discards the last item put in the cache based on the LIFO algorithm.
 
         Args:
@@ -63,8 +57,7 @@ class LIFOCache(BaseCaching):
             key: The key to retrieve the value for.
 
         Returns:
-            The value associated with the
-            key in the cache, or None if the key is None or not found.
+            The value associated with the key in the cache, or None if the key is None or not found.
         """
         if key is None or key not in self.cache_data:
             return None
