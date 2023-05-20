@@ -8,7 +8,8 @@ from base_caching import BaseCaching
 class LRUCache(BaseCaching):
     """
     LRUCache is a caching system that inherits from the BaseCaching class.
-    It implements a caching system using the Least Recently Used (LRU) algorithm.
+    It implements a caching system using
+    the Least Recently Used (LRU) algorithm.
     """
 
     def __init__(self):
@@ -29,7 +30,8 @@ class LRUCache(BaseCaching):
         Inserts an item into the cache with the specified key.
 
         If the key or item is None, this method does nothing.
-        If the number of items in the cache exceeds the maximum limit (BaseCaching.MAX_ITEMS),
+        If the number of items in the
+        cache exceeds the maximum limit (BaseCaching.MAX_ITEMS),
         it discards the least recently used item based on the LRU algorithm.
 
         Args:
@@ -55,13 +57,15 @@ class LRUCache(BaseCaching):
         Retrieves the value associated with the specified key from the cache.
 
         If the key is None or does not exist in the cache, it returns None.
-        If the key exists in the cache, it updates the usage_tracker to reflect the most recent usage.
+        If the key exists in the cache,
+        it updates the usage_tracker to reflect the most recent usage.
 
         Args:
             key: The key to retrieve the value for.
 
         Returns:
-            The value associated with the key in the cache, or None if the key is None or not found.
+            The value associated with
+            the key in the cache, or None if the key is None or not found.
         """
         if key is None or key not in self.cache_data:
             return None
