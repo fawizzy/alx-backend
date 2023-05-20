@@ -14,6 +14,7 @@ class LRUCache(BaseCaching):
         Initialize the class
         """
         super().__init__()
+        self.order = []
 
     def put(self, key, item):
         """
@@ -27,15 +28,16 @@ class LRUCache(BaseCaching):
             del self.cache_data[least_recently_used]
             print("DISCARD: ", least_recently_used)
         self.cache_data[key] = item
+        self.order.append(key)
 
     def get(self, key):
         """
         get the value of the key from the cache
         """
-        if key in self.lru:
-            del self.lru[self.lru.index(key)]
+        if key in self.order:
+            del self.order[self.order.index(key)]
         if key in list(self.cache_data.keys()):
-            self.lru.append(key)
+            self.order.append(key)
 
         if key in self.cache_data.keys():
             return self.cache_data[key]
