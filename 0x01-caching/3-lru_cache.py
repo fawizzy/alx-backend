@@ -24,9 +24,8 @@ class LRUCache(BaseCaching):
             return
 
         if len(self.cache_data) >= self.MAX_ITEMS:
-            least_recently_used = self.order[0]
+            least_recently_used = self.order.pop(0)
             del self.cache_data[least_recently_used]
-            del self.order[0]
             print("DISCARD: ", least_recently_used)
         self.cache_data[key] = item
         self.order.append(key)
@@ -35,12 +34,10 @@ class LRUCache(BaseCaching):
         """
         get the value of the key from the cache
         """
-        if key in self.order:
-            del self.order[self.order.index(key)]
-        if key in list(self.cache_data.keys()):
-            self.order.append(key)
-
-        if key in self.cache_data.keys():
-            return self.cache_data[key]
-        else:
+        if key is None or key not in self.cache_data:
             return None
+        
+        self.order.remove(key)
+        self.order.append(key)
+
+        return self.cache_data[key]
