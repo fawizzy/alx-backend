@@ -27,10 +27,10 @@ class LIFOCache(BaseCaching):
         self.sequence.append(key)
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            last_in = self.sequence[-2]
-            del self.cache_data[last_in]
-            del self.sequence[-2]
-            print("DISCARD: ", last_in)
+            last_item = list(self.cache_data.keys())[-1]
+            # Remove the last item from the cache
+            del self.cache_data[last_item]
+            print("DISCARD:", last_item)
 
     def get(self, key):
         """
