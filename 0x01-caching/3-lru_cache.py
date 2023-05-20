@@ -7,70 +7,37 @@ from base_caching import BaseCaching
 
 class LRUCache(BaseCaching):
     """
-    LRUCache is a caching system that inherits from the BaseCaching class.
-    It implements a caching system using
-    the Least Recently Used (LRU) algorithm.
+    Least recently used caching system
     """
-
     def __init__(self):
         """
-        Initializes an instance of LRUCache.
-
-        Args:
-            None
-
-        Returns:
-            None
+        Initialize the class
         """
         super().__init__()
-        self.usage_tracker = []
+        self.order = []
 
     def put(self, key, item):
         """
-        Inserts an item into the cache with the specified key.
-
-        If the key or item is None, this method does nothing.
-        If the number of items in the
-        cache exceeds the maximum limit (BaseCaching.MAX_ITEMS),
-        it discards the least recently used item based on the LRU algorithm.
-
-        Args:
-            key: The key to associate the item with.
-            item: The item to be stored in the cache.
-
-        Returns:
-            None
+        add key-value pair to the cache
         """
         if key is None or item is None:
             return
 
         if len(self.cache_data) >= self.MAX_ITEMS:
-            lru_key = self.usage_tracker.pop(0)
-            del self.cache_data[lru_key]
-            print("DISCARD:", lru_key)
-
+            least_recently_used = self.order.pop(0)
+            del self.cache_data[least_recently_used]
+            print("DISCARD: ", least_recently_used)
         self.cache_data[key] = item
-        self.usage_tracker.append(key)
+        self.order.append(key)
 
     def get(self, key):
         """
-        Retrieves the value associated with the specified key from the cache.
-
-        If the key is None or does not exist in the cache, it returns None.
-        If the key exists in the cache,
-        it updates the usage_tracker to reflect the most recent usage.
-
-        Args:
-            key: The key to retrieve the value for.
-
-        Returns:
-            The value associated with
-            the key in the cache, or None if the key is None or not found.
+        get the value of the key from the cache
         """
         if key is None or key not in self.cache_data:
             return None
-
-        self.usage_tracker.remove(key)
-        self.usage_tracker.append(key)
+        
+        self.order.remove(key)
+        self.order.append(key)
 
         return self.cache_data[key]
